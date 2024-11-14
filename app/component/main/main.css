@@ -1,0 +1,147 @@
+.main-div{
+    color: black;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+}
+.to ,.from{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+
+}
+.select-container{
+    display: flex;
+    cursor: pointer;
+}
+.amt-input{
+    text-align: center;
+    border: 1px solid black;
+    margin-top: 10px;
+    background: rgb(239, 239, 239);   
+     border-radius: 10px;
+
+
+}
+.container img{
+    width: 50px;
+}
+select{
+    cursor: pointer;
+    background: rgb(239, 239, 239);
+    border-radius: 10px;
+
+
+}
+button{
+    border: 2px solid black;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack columns vertically on small screens */
+        align-items: center;
+    }
+
+    .to, .from {
+        width: 80%; /* Adjust width to look better on smaller screens */
+        text-align: center; /* Center text on small screens */
+    }
+
+    .select-container {
+        flex-direction: column; /* Stack select containers vertically */
+        width: 100%; /* Full width on small screens */
+    }
+select{
+    border: 1px solid black;
+}
+    .amt-input {
+        width: 100%; /* Full width on small screens */
+        margin-top: 10px;
+    }
+
+    .container img {
+        width: 40px; /* Slightly reduce image size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+        padding: 10px; /* Extra padding for smaller screens */
+    }
+
+    .to, .from {
+        width: 90%; /* Further adjust for very small screens */
+    }
+
+    .amt-input {
+        font-size: 1em; /* Adjust font size for smaller screens */
+    }
+}
+
+.text-box {
+    
+    position: relative; /* Helps to position the button properly within the text-box */
+}
+
+.btn {
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s;
+    color: #777;
+    overflow: hidden; /* Hides the scaling effect on hover */
+    background-color: #fff;
+    padding: 15px;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Background Effect */
+.btn::after {
+    content: "";
+    display: inline-block;
+   
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #fff;
+    transition: all 0.4s;
+}
+.text-box{
+    margin-top: 20px;
+}
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+/* Animation */
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
