@@ -16,7 +16,7 @@ const countryList = {
     useEffect(() => {
       // Reset converted amount when currencies or amount change
       setConvertedAmount(null);
-    }, [fromCurrency, toCurrency, amount]);
+    }, [fromCurrency, toCurrency, amount]); 
   
     const handleConvert = async () => {
       try {

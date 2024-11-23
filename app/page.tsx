@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './component/header/page'
-import Stock from './stock/page'
+import Stock from './trade/page'
 import Footer from './component/footer/page'
 
 const page = () => {

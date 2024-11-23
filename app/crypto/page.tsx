@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import './stock.css'
+import './crypto.css'
 import Link from 'next/link';
 
 interface NewsArticle {
@@ -11,7 +11,7 @@ interface NewsArticle {
 
   }
   
-  const Stock = () => {
+  const Crypto = () => {
     const [news, setNews] = useState<NewsArticle[]>([]);
     const [loading, setLoading] = useState(true);
   
@@ -19,7 +19,7 @@ interface NewsArticle {
       const fetchNews = async () => {
         try {
           const response = await fetch(
-            `https://newsapi.org/v2/everything?q=stock&apiKey=f02ab78ce0284cea93ee8a265203609d`
+            `https://newsapi.org/v2/everything?q=crypto&apiKey=f02ab78ce0284cea93ee8a265203609d`
           );
           const data = await response.json();
           setNews(data.articles || []);  
@@ -63,7 +63,6 @@ interface NewsArticle {
           </ul>
         </li>
         <li className="dropdown">
-          
         <Link target='_blank' href='https://subhankaladiportfolio.vercel.app/'>My-Portfolio</Link>
         </li>
       </ul>
@@ -91,4 +90,4 @@ interface NewsArticle {
     );
   };
   
-  export default Stock;
+  export default Crypto;

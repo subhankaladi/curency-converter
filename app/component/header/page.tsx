@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './header.css'; // Importing the CSS file for styling
 import Link from 'next/link';
@@ -12,9 +13,9 @@ const Header = () => {
       <ul className="nav">
         <li className="dropdown">News
           <ul className="dropdown-menu">
-            <li><Link href="#need1">Stock News</Link></li>
-            <li><Link href="#need2">Forex News</Link></li>
-            <li><Link href="#need3">Crypto News</Link></li>
+            <li><Link href="/stock">Stock News</Link></li>
+            <li><Link href="/forex">Forex News</Link></li>
+            <li><Link href="/crypto">Crypto News</Link></li>
           </ul>
         </li>
         <li className="dropdown">Markets
@@ -25,7 +26,7 @@ const Header = () => {
           </ul>
         </li>
         <li className="dropdown">
-            <Link href='/'>My-Portfolio</Link>
+        <Link target='_blank' href='https://subhankaladiportfolio.vercel.app/'>My-Portfolio</Link>
         </li>
       </ul>
 
