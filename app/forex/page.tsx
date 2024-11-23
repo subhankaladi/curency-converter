@@ -1,14 +1,14 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
+import "./forex.css";
+import Link from "next/link";
 
-import React, { useState, useEffect } from 'react';
-import './forex.css'
-import Link from 'next/link';
 interface NewsArticle {
-    title: string;
-    description: string;
-    url: string;
-    urlToImage?: string;  
+  title: string;
+  description: string;
+  url: string;
+  urlToImage?: string;
 }
 
 const Forex = () => {
@@ -19,13 +19,13 @@ const Forex = () => {
     const fetchNews = async () => {
       try {
         const response = await fetch(
-          `https://newsapi.org/v2/everything?q=forex&apiKey=f02ab78ce0284cea93ee8a265203609d`
+          `https://newsapi.org/v2/everything?q=forex&apiKey=f02ab78ce0284cea93ee8a265203609d` // API key hardcoded here
         );
         const data = await response.json();
-        setNews(data.articles || []);  
+        setNews(data.articles || []);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching the news:', error);
+        console.error("Error fetching the news:", error);
         setLoading(false);
       }
     };
@@ -43,34 +43,45 @@ const Forex = () => {
 
   return (
     <div className="stock-news-container">
-
-        <div>
-
+      <div>
         <ul className="nav">
-        <li className="dropdown">News
-          <ul className="dropdown-menu">
-            <li><Link href="/stock">Stock News</Link></li>
-            <li><Link href="/forex">Forex News</Link></li>
-            <li><Link href="/crypto">Crypto News</Link></li>
-          </ul>
-        </li>
-        <li className="dropdown">Markets
-          <ul className="dropdown-menu">
-            <li><Link href="#need1">S&P</Link></li>
-            <li><Link href="#need2">EURO</Link></li>
-            <li><Link href="#need3">JPY</Link></li>
-          </ul>
-        </li>
-        <li className="dropdown">
-        <Link target='_blank' href='https://subhankaladiportfolio.vercel.app/'>My-Portfolio</Link>
-        </li>
-      </ul>
-   
-        </div>
-        
-        
-        <div className="news-list">
-            
+          <li className="dropdown">
+            News
+            <ul className="dropdown-menu">
+              <li>
+                <Link href="/stock">Stock News</Link>
+              </li>
+              <li>
+                <Link href="/forex">Forex News</Link>
+              </li>
+              <li>
+                <Link href="/crypto">Crypto News</Link>
+              </li>
+            </ul>
+          </li>
+          <li className="dropdown">
+            Markets
+            <ul className="dropdown-menu">
+              <li>
+                <Link href="#need1">S&P</Link>
+              </li>
+              <li>
+                <Link href="#need2">EURO</Link>
+              </li>
+              <li>
+                <Link href="#need3">JPY</Link>
+              </li>
+            </ul>
+          </li>
+          <li className="dropdown">
+            <Link target="_blank" href="https://subhankaladiportfolio.vercel.app/">
+              My-Portfolio
+            </Link>
+          </li>
+        </ul>
+      </div>
+
+      <div className="news-list">
         {news.map((article, index) => (
           <div key={index} className="news-item">
             {article.urlToImage && (
